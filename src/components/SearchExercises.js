@@ -2,6 +2,8 @@
 import { Stack, Typography, Box, Button, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { exerciseOptions, fetchData } from '../utils/fetchData';
+import HorizontalScrollbar from './HorizontalScrollbar';
+
 
 const SearchExercises = () => {
 
@@ -46,6 +48,10 @@ const SearchExercises = () => {
           }}
           height='70px' value={search} onChange={(e) => { setSearch(e.target.value.toLowerCase()) }} placeHolder='Search Exercise' type='text' />
         <Button onClick={handleSearch} className='search-btn' sx={{ bgcolor: '#FF2625', color: '#fff', textTransform: 'none', width: { lg: '175px', xs: '80px' }, fontsize: { lg: '20px', xs: '14px' }, height: '56px', position: 'absolute', right: '0' }}>Search</Button>
+      </Box>
+
+      <Box sx={{position:'relative', width:'100%', p:'20px' }}>
+          <HorizontalScrollbar data={bodyparts}/>
       </Box>
     </Stack>
   )
