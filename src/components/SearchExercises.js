@@ -7,6 +7,17 @@ const SearchExercises = () => {
 
   const [search, setSearch] = useState('');
   const [exercises, setExercices] = useState([]);
+  const [bodyparts, setBodyparts] = useState([]);
+
+  useEffect(() =>{
+    const fetchExercisesData = async () =>{
+      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions)  ;
+    
+      setBodyparts(['all', ...bodyPartsData]);
+    }
+
+    fetchExercisesData();
+  },[])
 
   const handleSearch = async () => {
     if (search) {
