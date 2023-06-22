@@ -115,6 +115,7 @@ body {
   
     .react-horizontal-scrolling-menu--scroll-container {
       width: 500px;
+      display: flex;
     }
   
     .left-arrow,
